@@ -1,5 +1,7 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, Image, TouchableOpacity, View} from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import car from '../assets/images/car.png';
+import React from "react";
 
 export default function Page() {
   return (
@@ -13,6 +15,8 @@ export default function Page() {
           <FontAwesome name="user-circle" size={30} color="gray" />
         </TouchableOpacity>
       </View>
+      <Image className="w-full h-60 mt-12" source={car} style={styles.image} resizeMode="contain" />
+
     </View>
   );
 }
