@@ -31,7 +31,7 @@ const Header = () => {
         </TouchableOpacity>
       </View>
       <Image className="w-full h-60 mt-12 object-contain" source={car} style={styles.image} />
-      <View className="flex flex-row justify-between mx-10 mt-2">
+      <View className="flex flex-row justify-between mx-10 mt-2 mb-3">
         <TouchableOpacity activeOpacity={0.7}>
           <Entypo name="lock" size={26} color="gray" />
         </TouchableOpacity>
@@ -52,7 +52,6 @@ const Header = () => {
 export default function Page() {
   return (
     <View style={styles.container}>
-
       <FlatList
         data={menuOptions}
         ListHeaderComponent={() => (
@@ -78,15 +77,5 @@ const styles = StyleSheet.create({
     marginTop: 50,
     flexDirection: 'row',
     justifyContent: 'space-between',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#eee',
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontWeight: '500',
-    color: 'gray',
-  },
+  }
 });
