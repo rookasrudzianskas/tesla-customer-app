@@ -3,11 +3,13 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import climateImage from '../assets/images/climate.png';
 import { MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import React from "react";
+import React, {useState} from "react";
 import {Image} from "expo-image";
 
 const ClimateScreen = () => {
   const router = useRouter();
+  const [temperature, setTemperature] = useState(72);
+  const [on, setOn] = useState(true);
   return (
     <View style={styles.container}>
       <Image source={climateImage} className="h-[65%] w-full" />
@@ -18,14 +20,20 @@ const ClimateScreen = () => {
         <Text className="text-gray-600/80 font-[600] text-lg pt-4">Interior 74°F - Exterior 66°F</Text>
         <View className="flex flex-row justify-between items-center w-full px-4">
           <View className="flex flex-col items-center">
-            <MaterialCommunityIcons name="power" size={42} color="white" />
-            <Text className="text-white font-[600] text-[18px] mt-2">On</Text>
+            <TouchableOpacity activeOpacity={0.7} onPress={() => setOn(!on)}>
+              <MaterialCommunityIcons name="power" size={42} color="white" />
+            </TouchableOpacity>
+            <Text className="text-white font-[600] text-[18px] mt-2">{on ? 'On' : 'Off'}</Text>
           </View>
 
           <View className="flex flex-row items-center">
-            <Entypo name="chevron-left" size={30} color="gray" />
-            <Text style={styles.temperatureText}>68°</Text>
-            <Entypo name="chevron-right" size={30} color="gray" />
+            <TouchableOpacity onPress={() => setTemperature(temperature + 1)}>
+              <Entypo name="chevron-left" size={30} color="gray" />
+            </TouchableOpacity>
+            <Text style={styles.temperatureText}>{temperature}°</Text>
+            <TouchableOpacity onPress={() => setTemperature(temperature - 1)}>
+              <Entypo name="chevron-right" size={30} color="gray" />
+            </TouchableOpacity>
           </View>
 
           <View className="flex flex-col items-center">
