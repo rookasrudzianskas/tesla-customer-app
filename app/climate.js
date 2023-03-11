@@ -1,5 +1,5 @@
 //@ts-nocheck
-import {View, Text, StyleSheet, Pressable, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import climateImage from '../assets/images/climate.png';
 import { MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
